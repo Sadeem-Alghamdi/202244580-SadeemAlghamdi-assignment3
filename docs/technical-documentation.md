@@ -171,141 +171,219 @@ async function loadData() {
 ### Promise.all()
 - Enables parallel API calls
 
+### Error Handling
+
 ```javascript
-const [user, repos] = await Promise.all([...]);
+try {
+  ...
+} catch (error) {
+  ...
+}
 ```
-DOM Manipulation
-Creating elements dynamically
-Updating content after API response
-Event Handling
-Click events
-Input events
-Scroll events
-State Management
-localStorage
-UI state (loading / success / error)
-7. Data Handling
-Local Storage
+
+### DOM Manipulation
+
+- Creating elements dynamically
+- Updating content after API response
+
+### Event Handling
+
+- Click events
+- Input events
+- Scroll events
+
+### State Management
+
+- localStorage
+- UI state (loading / success / error)
+
+---
+
+## 7. Data Handling
+
+### Local Storage
+
 Stores:
-theme preference
-visitor name
-favorite project
-API Data
-fetched dynamically
-not stored permanently
-reloaded on demand
-8. User Experience (UX) Design
+- theme preference
+- visitor name
+- favorite project
+
+### API Data
+
+- fetched dynamically
+- not stored permanently
+- reloaded on demand
+
+---
+
+## 8. User Experience (UX) Design
+
 This section explains how the user interacts with the system step-by-step.
-9. User Navigation Guide (Step-by-Step)
-Step 1: Opening the Website
-User opens index.html
-The homepage (Hero section) appears
-Greeting is automatically generated based on time
-Step 2: Personalization
-User enters their name
-Clicks Save
-Name is stored in localStorage
-Greeting updates instantly
-Optional:
-User clicks Clear
-Stored name is removed
-Step 3: Navigating the Website
+
+---
+
+## 9. User Navigation Guide (Step-by-Step)
+
+### Step 1: Opening the Website
+
+- User opens `index.html`
+- The homepage (Hero section) appears
+- Greeting is automatically generated based on time
+
+### Step 2: Personalization
+
+- User enters their name
+- Clicks **Save**
+- Name is stored in localStorage
+- Greeting updates instantly
+
+**Optional:**
+- User clicks **Clear**
+- Stored name is removed
+
+### Step 3: Navigating the Website
+
 User can navigate using:
-Navigation bar (top menu)
-Scroll
-Sections:
-Home
-About
-Projects
-GitHub
-Live APIs
-Skills
-Contact
-Active section is highlighted automatically
-Step 4: Projects Interaction
+- Navigation bar (top menu)
+- Scroll
+
+**Sections:**
+- Home
+- About
+- Projects
+- GitHub
+- Live APIs
+- Skills
+- Contact
+
+- Active section is highlighted automatically
+
+### Step 4: Projects Interaction
+
 User can:
-Search projects using search bar
-Filter projects by category
-Click View Details → modal opens
-Save a project as favorite
-System feedback:
-Shows number of matching projects
-Shows message if no results found
-Saves favorite project
-Step 5: GitHub Section
-User scrolls to GitHub section
-System:
-Loads GitHub data automatically
-Shows loading message
-Displays:
-profile info
-repositories
-User can:
-Click repository → opens GitHub
-Click Refresh → reload data
-Step 6: Quote Section
+- Search projects using search bar
+- Filter projects by category
+- Click **View Details** → modal opens
+- Save a project as favorite
+
+**System feedback:**
+- Shows number of matching projects
+- Shows message if no results found
+- Saves favorite project
+
+### Step 5: GitHub Section
+
+- User scrolls to GitHub section
+
+**System:**
+- Loads GitHub data automatically
+- Shows loading message
+- Displays:
+    - profile info
+    - repositories
+
+**User can:**
+- Click repository → opens GitHub
+- Click **Refresh** → reload data
+
+### Step 6: Quote Section
+
 User sees:
-A random quote
+- A random quote
+
 User can:
-Click New Quote
-System fetches a new quote instantly
-Step 7: Weather Section
+- Click **New Quote**
+- System fetches a new quote instantly
+
+### Step 7: Weather Section
+
 User sees:
-Current weather in Dammam
-Displayed:
-temperature
-humidity
-wind speed
-condition
+- Current weather in Dammam
+
+**Displayed:**
+- temperature
+- humidity
+- wind speed
+- condition
+
 User can:
-Click Refresh to update data
-Step 8: Skills Section
-User clicks tabs (Programming / Tools / Soft Skills)
-Content updates dynamically
-Step 9: Contact Form
+- Click **Refresh** to update data
+
+### Step 8: Skills Section
+
+- User clicks tabs (Programming / Tools / Soft Skills)
+- Content updates dynamically
+
+### Step 9: Contact Form
+
 User:
-Fills name
-Fills email
-Writes message
-Clicks submit
-System:
-Validates all fields
-Shows specific errors
-Shows success message if valid
-Step 10: Additional UX Features
-Scroll progress bar shows reading progress
-Scroll-to-top button appears after scrolling
-Sections animate when entering viewport
-Theme toggle switches between dark/light
-Layout adapts to mobile screens
-10. Performance Considerations
-API calls are optimized using Promise.all
-Only necessary data is rendered
-DOM updates are minimized
-CSS uses efficient layout techniques
-11. Accessibility Considerations
-ARIA attributes used
-Buttons include labels
-Navigation is keyboard-friendly
-Clear visual feedback for errors
-12. Improvements from Assignment 2
-Functional Improvements
-Added 3 API integrations
-Added dynamic external data
-Added refresh capabilities
-Technical Improvements
-Introduced async programming
-Added error handling
-Improved code modularity
-UX Improvements
-Added navigation guidance
-Added live data feedback
-Improved interactivity
-13. Conclusion
+- Fills name
+- Fills email
+- Writes message
+- Clicks submit
+
+**System:**
+- Validates all fields
+- Shows specific errors
+- Shows success message if valid
+
+### Step 10: Additional UX Features
+
+- Scroll progress bar shows reading progress
+- Scroll-to-top button appears after scrolling
+- Sections animate when entering viewport
+- Theme toggle switches between dark/light
+- Layout adapts to mobile screens
+
+---
+
+## 10. Performance Considerations
+
+- API calls are optimized using `Promise.all`
+- Only necessary data is rendered
+- DOM updates are minimized
+- CSS uses efficient layout techniques
+
+---
+
+## 11. Accessibility Considerations
+
+- ARIA attributes used
+- Buttons include labels
+- Navigation is keyboard-friendly
+- Clear visual feedback for errors
+
+---
+
+## 12. Improvements from Assignment 2
+
+### Functional Improvements
+
+- Added 3 API integrations
+- Added dynamic external data
+- Added refresh capabilities
+
+### Technical Improvements
+
+- Introduced async programming
+- Added error handling
+- Improved code modularity
+
+### UX Improvements
+
+- Added navigation guidance
+- Added live data feedback
+- Improved interactivity
+
+---
+
+## 13. Conclusion
+
 This project demonstrates:
-strong front-end development
-real-world API integration
-advanced JavaScript usage
-user-centered design
+- strong front-end development
+- real-world API integration
+- advanced JavaScript usage
+- user-centered design
+
 It represents a complete transition from:
-static UI → interactive system → dynamic API-driven application
+- static UI → interactive system → dynamic API-driven application
