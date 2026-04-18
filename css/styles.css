@@ -312,7 +312,10 @@ html[data-theme="light"] .greeting-badge {
 .hero-panel h3,
 .about-card h3,
 .contact-info h3,
-.highlight-banner h3 {
+.highlight-banner h3,
+.api-card h3,
+.github-repos-card h3,
+.github-profile-card h3 {
     margin-bottom: 6px;
     font-size: 1.2rem;
 }
@@ -370,7 +373,9 @@ html[data-theme="light"] .personal-greeting {
     color: var(--accent);
 }
 
-.hero-stats {
+.hero-stats,
+.github-stats,
+.weather-stats {
     margin-top: 22px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -429,13 +434,26 @@ html[data-theme="light"] .section-label {
     color: var(--muted);
 }
 
-.about-grid {
+.about-grid,
+.github-grid,
+.live-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     gap: 18px;
 }
 
-.about-card {
+.about-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.github-grid,
+.live-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.about-card,
+.github-profile-card,
+.github-repos-card,
+.api-card {
     padding: 24px;
 }
 
@@ -550,15 +568,25 @@ html[data-theme="light"] .quick-info i {
     pointer-events: none;
 }
 
-.project-card:hover {
+.project-card:hover,
+.repo-item:hover,
+.api-card:hover,
+.github-profile-card:hover,
+.github-repos-card:hover {
     transform: translateY(-6px);
     border-color: rgba(139, 92, 246, 0.28);
 }
 
-.project-top {
+.project-top,
+.repos-head,
+.github-profile-top,
+.weather-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.project-top {
     margin-bottom: 14px;
 }
 
@@ -596,14 +624,16 @@ html[data-theme="light"] .quick-info i {
 }
 
 .project-tags,
-.skills-pills {
+.skills-pills,
+.repo-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 .tag,
-.skill-pill {
+.skill-pill,
+.repo-tag {
     padding: 9px 14px;
     border-radius: 999px;
     font-size: 0.88rem;
@@ -665,7 +695,8 @@ html[data-theme="light"] .quick-info i {
     margin-top: 16px;
 }
 
-.contact-link {
+.contact-link,
+.repo-item {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -680,6 +711,110 @@ html[data-theme="light"] .quick-info i {
 .contact-link:hover {
     color: var(--text);
     border-color: rgba(139, 92, 246, 0.28);
+}
+
+.repo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.repo-title-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.repo-title {
+    font-weight: 700;
+    color: var(--text);
+}
+
+.repo-desc {
+    color: var(--muted);
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-size: 0.96rem;
+}
+
+.repo-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.github-profile-top {
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.github-avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 24px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.repo-list {
+    margin-top: 16px;
+}
+
+.api-loading,
+.api-error {
+    min-height: 24px;
+    font-weight: 500;
+}
+
+.api-loading {
+    color: var(--muted);
+}
+
+.api-error {
+    color: var(--error);
+}
+
+.quote-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: 12px;
+}
+
+.quote-author {
+    margin-top: 14px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.weather-top {
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.weather-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: white;
+}
+
+.weather-icon {
+    font-size: 1.7rem;
+}
+
+.weather-updated {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.92rem;
 }
 
 .form-group {
@@ -831,7 +966,9 @@ html[data-theme="light"] .quick-info i {
     .hero-grid,
     .about-grid,
     .projects-grid,
-    .contact-grid {
+    .contact-grid,
+    .github-grid,
+    .live-grid {
         grid-template-columns: 1fr;
     }
 
@@ -869,11 +1006,15 @@ html[data-theme="light"] .quick-info i {
     .name-row,
     .hero-actions,
     .filter-buttons,
-    .tabs {
+    .tabs,
+    .repo-title-row {
         flex-direction: column;
+        align-items: stretch;
     }
 
-    .hero-stats {
+    .hero-stats,
+    .github-stats,
+    .weather-stats {
         grid-template-columns: 1fr;
     }
 

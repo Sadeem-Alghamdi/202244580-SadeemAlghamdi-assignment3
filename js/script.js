@@ -1,3 +1,14 @@
+/* =========================
+   CONFIG
+========================= */
+const GITHUB_USERNAME = "Sadeem-Alghamdi"; // replace with your GitHub username
+const WEATHER_LAT = 26.4207;
+const WEATHER_LON = 50.0888;
+const WEATHER_LABEL = "Al-Khobar, Saudi Arabia";
+
+/* =========================
+   DOM
+========================= */
 const yearEl = document.getElementById("year");
 const greetingEl = document.getElementById("greeting");
 const themeToggle = document.getElementById("themeToggle");
@@ -35,25 +46,59 @@ const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 const messageInput = document.getElementById("message");
 const messageCounter = document.getElementById("messageCounter");
-
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
-
 const nameError = document.getElementById("nameError");
 const emailError = document.getElementById("emailError");
 const messageError = document.getElementById("messageError");
+
+/* GitHub */
+const githubProfileLoading = document.getElementById("githubProfileLoading");
+const githubProfileError = document.getElementById("githubProfileError");
+const githubProfile = document.getElementById("githubProfile");
+const githubAvatar = document.getElementById("githubAvatar");
+const githubName = document.getElementById("githubName");
+const githubUsername = document.getElementById("githubUsername");
+const githubBio = document.getElementById("githubBio");
+const githubReposCount = document.getElementById("githubReposCount");
+const githubFollowers = document.getElementById("githubFollowers");
+const githubFollowing = document.getElementById("githubFollowing");
+const githubProfileLink = document.getElementById("githubProfileLink");
+const githubReposLoading = document.getElementById("githubReposLoading");
+const githubReposError = document.getElementById("githubReposError");
+const githubReposContainer = document.getElementById("githubRepos");
+const refreshGithubBtn = document.getElementById("refreshGithubBtn");
+
+/* Quote */
+const quoteLoading = document.getElementById("quoteLoading");
+const quoteError = document.getElementById("quoteError");
+const quoteBox = document.getElementById("quoteBox");
+const quoteText = document.getElementById("quoteText");
+const quoteAuthor = document.getElementById("quoteAuthor");
+const newQuoteBtn = document.getElementById("newQuoteBtn");
+
+/* Weather */
+const weatherLoading = document.getElementById("weatherLoading");
+const weatherError = document.getElementById("weatherError");
+const weatherBox = document.getElementById("weatherBox");
+const weatherLocation = document.getElementById("weatherLocation");
+const weatherDescription = document.getElementById("weatherDescription");
+const weatherTemp = document.getElementById("weatherTemp");
+const weatherWind = document.getElementById("weatherWind");
+const weatherHumidity = document.getElementById("weatherHumidity");
+const weatherUpdated = document.getElementById("weatherUpdated");
+const weatherIcon = document.getElementById("weatherIcon");
+const refreshWeatherBtn = document.getElementById("refreshWeatherBtn");
 
 let activeFilter = "all";
 let countersStarted = false;
 let lastFocusedButton = null;
 
-/* helpers */
+/* =========================
+   HELPERS
+========================= */
 function sanitizeText(value) {
     return value.trim().replace(/[<>]/g, "");
-}
-
-function setText(el, text) {
-    if (el) el.textContent = text;
 }
 
 function clearFieldError(inputEl, errorEl) {
@@ -66,10 +111,26 @@ function showFieldError(inputEl, errorEl, message) {
     errorEl.textContent = message;
 }
 
-/* footer year */
+function formatNumber(num) {
+    return new Intl.NumberFormat().format(num);
+}
+
+async function fetchJSON(url, options = {}) {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+    }
+    return response.json();
+}
+
+/* =========================
+   FOOTER YEAR
+========================= */
 yearEl.textContent = new Date().getFullYear();
 
-/* greeting */
+/* =========================
+   GREETING
+========================= */
 function updateGreeting() {
     const hour = new Date().getHours();
 
@@ -83,7 +144,9 @@ function updateGreeting() {
 }
 updateGreeting();
 
-/* theme */
+/* =========================
+   THEME
+========================= */
 const themeIcon = themeToggle.querySelector("i");
 
 function updateThemeIcon(theme) {
@@ -108,7 +171,9 @@ themeToggle.addEventListener("click", () => {
     updateThemeIcon(newTheme);
 });
 
-/* mobile nav */
+/* =========================
+   MOBILE NAV
+========================= */
 function closeMobileMenu() {
     navMenu.classList.remove("active");
     menuToggle.setAttribute("aria-expanded", "false");
@@ -134,9 +199,7 @@ menuToggle.addEventListener("click", () => {
 });
 
 document.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("click", () => {
-        closeMobileMenu();
-    });
+    link.addEventListener("click", closeMobileMenu);
 });
 
 document.addEventListener("click", (e) => {
@@ -148,7 +211,9 @@ document.addEventListener("click", (e) => {
     }
 });
 
-/* smooth anchor scroll */
+/* =========================
+   SMOOTH SCROLL
+========================= */
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", function (e) {
         const targetId = this.getAttribute("href");
@@ -161,7 +226,9 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
 });
 
-/* active nav on scroll */
+/* =========================
+   ACTIVE NAV
+========================= */
 const sections = document.querySelectorAll("main section");
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -186,7 +253,9 @@ function updateActiveNav() {
     });
 }
 
-/* scroll progress + scroll top button */
+/* =========================
+   SCROLL PROGRESS
+========================= */
 function updateScrollProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -204,7 +273,9 @@ scrollTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-/* personalized greeting */
+/* =========================
+   PERSONALIZED GREETING
+========================= */
 function renderSavedName() {
     const savedName = localStorage.getItem("visitorName");
 
@@ -244,7 +315,9 @@ clearNameBtn.addEventListener("click", () => {
     renderSavedName();
 });
 
-/* counter animation */
+/* =========================
+   COUNTERS
+========================= */
 function startCounters() {
     if (countersStarted) return;
     countersStarted = true;
@@ -267,7 +340,9 @@ function startCounters() {
     });
 }
 
-/* reveal on scroll */
+/* =========================
+   REVEAL ON SCROLL
+========================= */
 revealSections.forEach((section) => section.classList.add("reveal"));
 
 function revealOnScroll() {
@@ -285,7 +360,9 @@ function revealOnScroll() {
     });
 }
 
-/* projects filter + search */
+/* =========================
+   PROJECTS
+========================= */
 function updateProjects() {
     const searchValue = projectSearch.value.toLowerCase().trim();
     let visibleCount = 0;
@@ -307,11 +384,8 @@ function updateProjects() {
     });
 
     resultsCount.textContent = `${visibleCount} project(s) shown.`;
-
     emptyMessage.textContent =
-        visibleCount === 0
-            ? "No projects found. Try another keyword or category."
-            : "";
+        visibleCount === 0 ? "No projects found. Try another keyword or category." : "";
 }
 
 filterButtons.forEach((button) => {
@@ -327,7 +401,9 @@ filterButtons.forEach((button) => {
 
 projectSearch.addEventListener("input", updateProjects);
 
-/* favorite project */
+/* =========================
+   FAVORITE PROJECT
+========================= */
 function renderFavoriteState() {
     const savedFavorite = localStorage.getItem("favoriteProject");
 
@@ -347,11 +423,9 @@ function renderFavoriteState() {
         }
     });
 
-    if (savedFavorite) {
-        favoriteMessage.textContent = `Favorite project saved: ${savedFavorite}`;
-    } else {
-        favoriteMessage.textContent = "You have not selected a favorite project yet.";
-    }
+    favoriteMessage.textContent = savedFavorite
+        ? `Favorite project saved: ${savedFavorite}`
+        : "You have not selected a favorite project yet.";
 }
 
 favoriteButtons.forEach((button) => {
@@ -370,7 +444,9 @@ favoriteButtons.forEach((button) => {
     });
 });
 
-/* modal */
+/* =========================
+   MODAL
+========================= */
 document.querySelectorAll(".open-modal-btn").forEach((button) => {
     button.addEventListener("click", function () {
         lastFocusedButton = this;
@@ -413,7 +489,9 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-/* tabs */
+/* =========================
+   TABS
+========================= */
 tabButtons.forEach((button) => {
     button.addEventListener("click", function () {
         const selectedTab = this.dataset.tab;
@@ -431,14 +509,15 @@ tabButtons.forEach((button) => {
     });
 });
 
-/* contact form */
+/* =========================
+   CONTACT FORM
+========================= */
 function updateMessageCounter() {
     const currentLength = messageInput.value.length;
     messageCounter.textContent = `${currentLength} / 300`;
 }
 
 updateMessageCounter();
-
 messageInput.addEventListener("input", updateMessageCounter);
 
 [nameInput, emailInput, messageInput].forEach((input) => {
@@ -497,7 +576,6 @@ contactForm.addEventListener("submit", (e) => {
 
     formMessage.textContent = "✅ Thank you! Your message has been received.";
     formMessage.style.color = "var(--success)";
-
     contactForm.reset();
     updateMessageCounter();
 
@@ -506,7 +584,181 @@ contactForm.addEventListener("submit", (e) => {
     }, 4500);
 });
 
-/* scroll events */
+/* =========================
+   GITHUB API
+========================= */
+function renderGitHubProfile(user) {
+    githubAvatar.src = user.avatar_url;
+    githubAvatar.alt = `${user.login} avatar`;
+    githubName.textContent = user.name || user.login;
+    githubUsername.textContent = `@${user.login}`;
+    githubBio.textContent = user.bio || "No bio available.";
+    githubReposCount.textContent = formatNumber(user.public_repos);
+    githubFollowers.textContent = formatNumber(user.followers);
+    githubFollowing.textContent = formatNumber(user.following);
+    githubProfileLink.href = user.html_url;
+}
+
+function createRepoCard(repo) {
+    const article = document.createElement("article");
+    article.className = "repo-item";
+
+    const language = repo.language || "Not specified";
+    const description = repo.description || "No description available.";
+
+    article.innerHTML = `
+      <div class="repo-title-row">
+        <a class="repo-title" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
+        <span class="repo-tag">${language}</span>
+      </div>
+      <p class="repo-desc">${description}</p>
+      <div class="repo-meta">
+        <span><i class="fa-solid fa-star"></i> ${repo.stargazers_count}</span>
+        <span><i class="fa-solid fa-code-fork"></i> ${repo.forks_count}</span>
+        <span><i class="fa-solid fa-clock"></i> Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
+      </div>
+    `;
+
+    return article;
+}
+
+async function loadGitHubData() {
+    githubProfileLoading.textContent = "Loading GitHub profile...";
+    githubReposLoading.textContent = "Loading repositories...";
+    githubProfileError.textContent = "";
+    githubReposError.textContent = "";
+    githubReposContainer.innerHTML = "";
+    githubProfile.classList.add("hidden");
+
+    if (!GITHUB_USERNAME || GITHUB_USERNAME === "YOUR_GITHUB_USERNAME") {
+        githubProfileLoading.textContent = "";
+        githubReposLoading.textContent = "";
+        githubProfileError.textContent = "Please add your GitHub username in script.js first.";
+        githubReposError.textContent = "Please add your GitHub username in script.js first.";
+        return;
+    }
+
+    try {
+        const [user, repos] = await Promise.all([
+            fetchJSON(`https://api.github.com/users/${GITHUB_USERNAME}`),
+            fetchJSON(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=4`)
+        ]);
+
+        renderGitHubProfile(user);
+        githubProfile.classList.remove("hidden");
+
+        if (!repos.length) {
+            githubReposContainer.innerHTML = `<p class="muted">No repositories found.</p>`;
+        } else {
+            repos.forEach((repo) => {
+                githubReposContainer.appendChild(createRepoCard(repo));
+            });
+        }
+
+        githubProfileLoading.textContent = "";
+        githubReposLoading.textContent = "";
+    } catch (error) {
+        githubProfileLoading.textContent = "";
+        githubReposLoading.textContent = "";
+        githubProfileError.textContent = "Could not load GitHub profile.";
+        githubReposError.textContent = "Could not load GitHub repositories.";
+        console.error("GitHub API error:", error);
+    }
+}
+
+refreshGithubBtn.addEventListener("click", loadGitHubData);
+
+/* =========================
+   QUOTE API
+========================= */
+async function loadQuote() {
+    quoteLoading.textContent = "Loading quote...";
+    quoteError.textContent = "";
+    quoteBox.classList.add("hidden");
+
+    try {
+        const data = await fetchJSON("https://dummyjson.com/quotes/random");
+
+        quoteText.textContent = `"${data.quote}"`;
+        quoteAuthor.textContent = `— ${data.author}`;
+
+        quoteLoading.textContent = "";
+        quoteBox.classList.remove("hidden");
+    } catch (error) {
+        quoteLoading.textContent = "";
+        quoteError.textContent = "Could not load quote right now.";
+        console.error("Quote API error:", error);
+    }
+}
+
+newQuoteBtn.addEventListener("click", loadQuote);
+
+/* =========================
+   WEATHER API
+========================= */
+function getWeatherDescription(code) {
+    const map = {
+        0: { text: "Clear sky", icon: "fa-sun" },
+        1: { text: "Mainly clear", icon: "fa-cloud-sun" },
+        2: { text: "Partly cloudy", icon: "fa-cloud-sun" },
+        3: { text: "Overcast", icon: "fa-cloud" },
+        45: { text: "Fog", icon: "fa-smog" },
+        48: { text: "Depositing rime fog", icon: "fa-smog" },
+        51: { text: "Light drizzle", icon: "fa-cloud-rain" },
+        53: { text: "Moderate drizzle", icon: "fa-cloud-rain" },
+        55: { text: "Dense drizzle", icon: "fa-cloud-rain" },
+        61: { text: "Slight rain", icon: "fa-cloud-showers-heavy" },
+        63: { text: "Moderate rain", icon: "fa-cloud-showers-heavy" },
+        65: { text: "Heavy rain", icon: "fa-cloud-showers-heavy" },
+        71: { text: "Slight snow", icon: "fa-snowflake" },
+        73: { text: "Moderate snow", icon: "fa-snowflake" },
+        75: { text: "Heavy snow", icon: "fa-snowflake" },
+        80: { text: "Rain showers", icon: "fa-cloud-showers-heavy" },
+        81: { text: "Rain showers", icon: "fa-cloud-showers-heavy" },
+        82: { text: "Violent rain showers", icon: "fa-cloud-showers-heavy" },
+        95: { text: "Thunderstorm", icon: "fa-bolt" },
+        96: { text: "Thunderstorm with hail", icon: "fa-bolt" },
+        99: { text: "Thunderstorm with hail", icon: "fa-bolt" }
+    };
+
+    return map[code] || { text: "Weather unavailable", icon: "fa-cloud" };
+}
+
+async function loadWeather() {
+    weatherLoading.textContent = "Loading weather...";
+    weatherError.textContent = "";
+    weatherBox.classList.add("hidden");
+
+    try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_LAT}&longitude=${WEATHER_LON}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`;
+        const data = await fetchJSON(url);
+
+        const current = data.current;
+        const weatherInfo = getWeatherDescription(current.weather_code);
+
+        weatherLocation.textContent = WEATHER_LABEL;
+        weatherDescription.textContent = weatherInfo.text;
+        weatherTemp.textContent = `${Math.round(current.temperature_2m)}°C`;
+        weatherWind.textContent = `${Math.round(current.wind_speed_10m)}`;
+        weatherHumidity.textContent = `${current.relative_humidity_2m}`;
+        weatherUpdated.textContent = `Updated: ${new Date(current.time).toLocaleString()}`;
+
+        weatherIcon.className = `fa-solid ${weatherInfo.icon} weather-icon`;
+
+        weatherLoading.textContent = "";
+        weatherBox.classList.remove("hidden");
+    } catch (error) {
+        weatherLoading.textContent = "";
+        weatherError.textContent = "Could not load weather right now.";
+        console.error("Weather API error:", error);
+    }
+}
+
+refreshWeatherBtn.addEventListener("click", loadWeather);
+
+/* =========================
+   SCROLL EVENTS
+========================= */
 function handleScroll() {
     updateScrollProgress();
     revealOnScroll();
@@ -515,7 +767,12 @@ function handleScroll() {
 
 window.addEventListener("scroll", handleScroll);
 
-/* initial calls */
+/* =========================
+   INITIAL LOAD
+========================= */
 updateProjects();
 renderFavoriteState();
 handleScroll();
+loadGitHubData();
+loadQuote();
+loadWeather();

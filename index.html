@@ -32,6 +32,8 @@
     <div class="nav-menu" id="navMenu">
       <a href="#about" class="nav-link">About</a>
       <a href="#projects" class="nav-link">Projects</a>
+      <a href="#github" class="nav-link">GitHub</a>
+      <a href="#live" class="nav-link">Live APIs</a>
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#contact" class="nav-link">Contact</a>
 
@@ -56,11 +58,11 @@
 
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">Explore Projects</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <a href="#github" class="btn btn-secondary">See Live APIs</a>
         </div>
 
         <p class="mini-note">
-          This portfolio includes interactive features such as theme switching, project filtering, local storage, modal views, tabs, and form validation.
+          This portfolio includes interactive features such as theme switching, filtering, local storage, tabs, modal views, form validation, and external API integration.
         </p>
       </div>
 
@@ -92,8 +94,8 @@
             <p>Core Skills</p>
           </div>
           <div class="stat-card">
-            <h4 class="counter" data-target="2">0</h4>
-            <p>Awards / Highlights</p>
+            <h4 class="counter" data-target="3">0</h4>
+            <p>Live API Features</p>
           </div>
         </div>
       </div>
@@ -251,6 +253,143 @@
       </div>
 
       <p id="emptyMessage" class="empty-message" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="github" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-label">GitHub API</span>
+        <h2 class="section-title">Live GitHub profile and repositories</h2>
+        <p class="section-text">
+          This section fetches public profile data and recent repositories from GitHub in real time.
+        </p>
+      </div>
+
+      <div class="github-grid">
+        <div class="glass-card github-profile-card">
+          <div id="githubProfileLoading" class="api-loading">Loading GitHub profile...</div>
+          <div id="githubProfileError" class="api-error"></div>
+
+          <div id="githubProfile" class="hidden">
+            <div class="github-profile-top">
+              <img id="githubAvatar" class="github-avatar" src="" alt="GitHub avatar" />
+              <div>
+                <h3 id="githubName">GitHub User</h3>
+                <p id="githubUsername" class="muted">@username</p>
+              </div>
+            </div>
+
+            <p id="githubBio" class="section-text"></p>
+
+            <div class="github-stats">
+              <div class="stat-card">
+                <h4 id="githubReposCount">0</h4>
+                <p>Repos</p>
+              </div>
+              <div class="stat-card">
+                <h4 id="githubFollowers">0</h4>
+                <p>Followers</p>
+              </div>
+              <div class="stat-card">
+                <h4 id="githubFollowing">0</h4>
+                <p>Following</p>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a id="githubProfileLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary small-btn">
+                Visit GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card github-repos-card">
+          <div class="repos-head">
+            <h3>Recent Repositories</h3>
+            <button id="refreshGithubBtn" class="btn btn-secondary small-btn" type="button">
+              Refresh
+            </button>
+          </div>
+
+          <div id="githubReposLoading" class="api-loading">Loading repositories...</div>
+          <div id="githubReposError" class="api-error"></div>
+          <div id="githubRepos" class="repo-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="live" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-label">Live APIs</span>
+        <h2 class="section-title">Quote API and Weather API</h2>
+        <p class="section-text">
+          These cards show a live random quote and current weather data.
+        </p>
+      </div>
+
+      <div class="live-grid">
+        <div class="glass-card api-card">
+          <div class="repos-head">
+            <h3>Quote of the Moment</h3>
+            <button id="newQuoteBtn" class="btn btn-secondary small-btn" type="button">
+              New Quote
+            </button>
+          </div>
+
+          <div id="quoteLoading" class="api-loading">Loading quote...</div>
+          <div id="quoteError" class="api-error"></div>
+
+          <div id="quoteBox" class="hidden">
+            <p id="quoteText" class="quote-text">Quote goes here.</p>
+            <p id="quoteAuthor" class="quote-author">— Author</p>
+          </div>
+        </div>
+
+        <div class="glass-card api-card">
+          <div class="repos-head">
+            <h3>Current Weather</h3>
+            <button id="refreshWeatherBtn" class="btn btn-secondary small-btn" type="button">
+              Refresh
+            </button>
+          </div>
+
+          <div id="weatherLoading" class="api-loading">Loading weather...</div>
+          <div id="weatherError" class="api-error"></div>
+
+          <div id="weatherBox" class="hidden">
+            <div class="weather-top">
+              <div class="weather-icon-wrap">
+                <i id="weatherIcon" class="fa-solid fa-cloud-sun weather-icon"></i>
+              </div>
+              <div>
+                <h3 id="weatherLocation">Dammam, Saudi Arabia</h3>
+                <p id="weatherDescription" class="muted">Weather condition</p>
+              </div>
+            </div>
+
+            <div class="weather-stats">
+              <div class="stat-card">
+                <h4 id="weatherTemp">--°C</h4>
+                <p>Temperature</p>
+              </div>
+              <div class="stat-card">
+                <h4 id="weatherWind">--</h4>
+                <p>Wind km/h</p>
+              </div>
+              <div class="stat-card">
+                <h4 id="weatherHumidity">--</h4>
+                <p>Humidity %</p>
+              </div>
+            </div>
+
+            <p id="weatherUpdated" class="weather-updated"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
