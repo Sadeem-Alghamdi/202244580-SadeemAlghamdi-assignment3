@@ -1,43 +1,55 @@
-# AI Usage Report – Assignment 2
+# AI Usage Report – Assignment 3
 
 Student: Sadeem Ahmed Alghamdi  
-Date: March 2026  
+Date: April 2026
 
 ---
 
 ## 1. Development Journey & Approach
 
-### Phase 1: Reviewing Assignment 1
+### Phase 1: Reviewing Assignment 2
 
-Before starting Assignment 2, I carefully reviewed my previous website and the grading comments from Assignment 1.
+Before starting Assignment 3, I carefully reviewed my previous portfolio (Assignment 2) along with the grading feedback.
 
-The comments showed that my first website was functional, but it needed improvement in:
-- theme toggle behavior
-- theme icon feedback
-- code consistency
-- user guidance
-- setup documentation
-- overall UX polish
+The feedback showed that the project was strong in:
+- interactivity
+- UI design
+- localStorage usage
+- user feedback
 
-So instead of only changing colors or layout, I decided to make Assignment 2 clearly more interactive and modern.
+However, there were areas that needed improvement:
+- technical depth
+- stronger use of JavaScript concepts
+- more realistic features (closer to real-world applications)
+- deeper explanation of user experience and system behavior
+
+Because of that, I decided that Assignment 3 should not just add features, but should:
+- introduce real-world data
+- demonstrate asynchronous programming
+- show integration with external services
 
 My goal became:
-to transform the portfolio from a mostly static website into a more dynamic and engaging user experience.
+to transform the portfolio from an interactive UI into a more dynamic, data-driven web application.
 
 ---
 
 ## 2. Planning the Improvements
 
-After reviewing the new assignment requirements, I wanted to include features that show clear progress beyond Assignment 1.
+After reading the Assignment 3 requirements, I focused on two main objectives:
 
-I planned features that match the assignment goals:
-- content changing based on user actions
-- better data handling
-- more user feedback
-- more polished transitions and animation
-- a stronger visual identity
+### Objective 1: External APIs and Services
+I planned to integrate APIs that:
+- are meaningful for a portfolio
+- show real-time data
+- demonstrate different types of data usage
 
-I specifically wanted the site to feel more memorable and innovative, not only “correct.”
+### Objective 2: Advanced JavaScript
+I wanted to clearly show:
+- async / await
+- API calls using fetch
+- error handling
+- dynamic rendering
+- better separation of logic
 
 ---
 
@@ -46,154 +58,215 @@ I specifically wanted the site to feel more memorable and innovative, not only �
 ### Tool #1: ChatGPT
 
 Purpose:
-- debugging issues from Assignment 1
-- suggesting better UI/UX improvements
-- helping structure new interactive features
-- improving documentation
+- suggesting suitable APIs for a portfolio
+- helping implement API integration
+- improving JavaScript structure
+- improving documentation depth
+- helping explain technical decisions clearly
 
 How I used it:
 
-I gave the AI:
-- my HTML, CSS, and JavaScript files
-- the comments and grading feedback from Assignment 1
-- my Assignment 2 instructions
+I provided:
+- my Assignment 2 code (HTML, CSS, JS)
+- Assignment 3 requirements
+- feedback from Assignment 2
+- my intended improvements
 
 Then I asked for help with:
-- fixing the previous issues
-- improving the visual style
-- adding truly new features
-- making the website feel more impressive and modern
-
-Example type of request:
-I put my code in AI along with the grading comments, fixed this and that, added this, changed that, and used AI suggestions to improve the interactivity and design.
+- selecting appropriate APIs
+- implementing API calls correctly
+- handling asynchronous logic
+- improving code organization
+- expanding documentation quality
 
 ---
 
-## 4. What AI Helped Me Improve
+## 4. What AI Helped Me Add in Assignment 3
 
-AI helped me with both fixing old issues and adding new features.
+AI played a major role in helping me extend the project beyond Assignment 2.
 
-### A. Fixing Previous Problems
-- corrected theme toggle behavior
-- added proper moon/sun icon switching
-- removed duplicated font loading
-- improved validation and feedback messages
-- improved user guidance and clarity
+### A. External API Integration
 
-### B. Adding New Interactive Features
-AI helped me implement and organize features such as:
-- project category filtering
-- live project search
-- interactive skills tabs
-- project detail modal popup
-- personalized greeting saved with localStorage
-- favorite project saved with localStorage
-- scroll progress indicator
-- animated counters
-- stronger form validation
+AI helped me implement three main APIs:
 
-### C. Improving the Design Direction
-AI also helped suggest:
-- a more dramatic visual style
-- glass-style cards
-- gradient accents
-- stronger hierarchy in headings and sections
-- more polished spacing and hover effects
+#### 1. GitHub API
+- fetch user profile data
+- fetch repositories
+- display live developer information
+
+#### 2. Quote API
+- display random quotes
+- allow refreshing quotes dynamically
+
+#### 3. Weather API
+- fetch real-time weather data
+- convert weather codes into readable text and icons
+
+---
+
+### B. Advanced JavaScript Implementation
+
+AI helped structure and implement:
+
+- async / await functions
+- fetch API usage
+- Promise.all for parallel requests
+- try / catch error handling
+- reusable helper functions
+- dynamic DOM updates after API responses
+
+---
+
+### C. UI and UX Improvements
+
+AI also suggested improvements such as:
+- adding loading states for API sections
+- adding error messages when API calls fail
+- adding refresh buttons for live data
+- improving navigation clarity
+- adding scroll-to-top button
+- improving interaction feedback
 
 ---
 
 ## 5. My Role and Responsibility
 
-Although AI was very helpful, I made sure the final work remained my own learning process.
+Even though AI was used, I ensured that the work remained my own learning process.
 
 ### Before Using AI
-- reviewed my old code
-- checked the grading comments
-- identified weak areas
-- decided what should change in Assignment 2
+- reviewed Assignment 2
+- analyzed grading feedback
+- identified missing technical depth
+- planned which APIs to use
 
 ### During AI Use
-- reviewed generated suggestions carefully
-- asked for features that fit the assignment
-- rejected ideas that felt too random or too decorative
-- kept asking for better versions until the result matched my goal
+- evaluated AI suggestions
+- selected only relevant features
+- adjusted implementations to match assignment requirements
+- asked for clearer or simpler solutions when needed
 
 ### After AI Use
-- edited the final content
-- checked the code line by line
-- tested interactions manually
-- made sure I understood the logic behind each feature
-- kept only features that improved the site meaningfully
+- reviewed all code manually
+- tested each feature step-by-step
+- ensured all APIs work correctly
+- confirmed I understand every part of the logic
+- removed anything unnecessary
 
 ---
 
 ## 6. What I Learned
 
-This assignment helped me understand more about:
-- how localStorage can improve personalization
-- how filtering and searching logic works
-- how modal popups are controlled using JavaScript
-- how tabs are managed with active classes
-- how small UX details can make a site feel much more professional
-- how design and functionality should support each other
+Through Assignment 3, I learned:
 
-I also learned that:
-a site can technically work, but still feel weak visually.
-Because of that, I paid more attention this time to both interaction and presentation.
+### Technical Skills
+- how to call external APIs using fetch
+- how to use async / await properly
+- how to handle errors in API requests
+- how to update the DOM dynamically
+- how to structure API-based components
+
+### Conceptual Understanding
+- difference between static and dynamic content
+- how front-end apps interact with services
+- importance of loading and error states
+- how real-world applications use external data
+
+### UX Awareness
+- users need feedback during loading
+- users need clear navigation guidance
+- dynamic data must still be readable and organized
 
 ---
 
 ## 7. Benefits of AI in This Assignment
 
-### Faster debugging
-AI helped me quickly identify issues carried from Assignment 1.
+### Faster Implementation
+AI helped reduce time spent on:
+- debugging API calls
+- structuring async code
 
-### Better ideas
-AI suggested interactive features that were more interesting than basic static sections.
+### Better Feature Selection
+AI suggested APIs that:
+- fit the portfolio purpose
+- are easy to demonstrate
+- clearly show assignment requirements
 
-### Better structure
-AI helped organize the code and documentation more clearly.
+### Better Code Organization
+AI helped improve:
+- function structure
+- separation of concerns
+- readability of logic
 
-### Better reflection
-AI helped me think beyond “just finishing the assignment” and focus on showing clear improvement.
+### Better Documentation
+AI helped expand:
+- technical explanations
+- UX description
+- step-by-step navigation
 
 ---
 
 ## 8. Challenges and How I Handled Them
 
-### Challenge 1: Making the website look better, not just work better
-At one point, I had a version that included more features, but it looked visually weak.
+### Challenge 1: Understanding API Structure
+At first, working with API responses was confusing.
 
 How I handled it:
-- I asked for a more polished version
-- I focused on stronger colors, spacing, cards, and section hierarchy
-- I kept the interactive features but redesigned how they were presented
+- inspected JSON responses
+- mapped only needed fields
+- simplified data before rendering
 
-### Challenge 2: Balancing innovation and simplicity
-There was a risk of adding too many features that felt unnecessary.
+---
+
+### Challenge 2: Handling Errors Properly
+API calls can fail or be slow.
 
 How I handled it:
-- I selected features that are clearly useful
-- I kept the interactions meaningful
-- I made sure every feature could be explained in the report
+- used try/catch
+- added loading messages
+- added user-friendly error messages
 
-### Challenge 3: Avoiding blind AI dependency
+---
+
+### Challenge 3: Avoiding Overcomplication
+There was a risk of adding too many APIs or unnecessary features.
+
 How I handled it:
-- I reviewed every suggestion
-- I tested the code manually
-- I only kept what I understood and could explain
+- selected only 3 APIs
+- ensured each API has a clear purpose
+- made sure each feature is explainable
+
+---
+
+### Challenge 4: Improving Technical Depth
+Assignment 2 feedback mentioned lack of depth.
+
+How I handled it:
+- focused more on explaining logic
+- used advanced JS concepts intentionally
+- improved documentation significantly
 
 ---
 
 ## 9. Final Reflection
 
-Assignment 2 is a stronger version of my portfolio in both functionality and presentation.
+Assignment 3 is a clear evolution from Assignment 2.
 
-Compared to Assignment 1, I did not only fix mistakes. I also added:
-- more meaningful interactivity
-- more personalization
-- more innovation
-- more visual polish
-- better user experience
+Compared to Assignment 2, I added:
+- real external API integration
+- asynchronous programming
+- dynamic data rendering
+- stronger technical structure
+- deeper documentation
+- clearer user navigation explanation
 
-AI supported me as a tool for improvement, feedback, and idea generation, but the final decisions, revisions, and understanding were my responsibility.
+This version demonstrates:
+- both UI/UX design and real-world functionality
+- the ability to connect front-end applications to live services
+- improved understanding of modern web development practices
+
+AI supported me as:
+- a guide for ideas
+- a helper for debugging
+- a tool for improving explanations
+
+However, all final decisions, implementations, and understanding were my responsibility.
